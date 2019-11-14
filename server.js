@@ -16,6 +16,13 @@ con.connect((err) => {
   console.log('Connection established');
 });
 
+con.query('SELECT * FROM station', (err,rows) => {
+    if(err) throw err;
+  
+    console.log('Data received from Db:\n');
+    console.log(rows);
+  });
+
 con.end((err) => {
   // The connection is terminated gracefully
   // Ensures all previously enqueued queries are still
