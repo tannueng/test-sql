@@ -1,34 +1,23 @@
-var express = require("express");
-var app = express();
+// app.js
+const mysql = require('mysql');
 
-app.get("/", function(req, res) {
-  var sql = require("mssql");
-
-  // config for your database
-  var config = {
-    user: "cusenseapi",
-    password: "cuapi123",
-    server: "localhost",
-    database: "apicusense"
-  };
-
-  // connect to your database
-  sql.connect(config, function(err) {
-    if (err) console.log(err);
-
-    // create Request object
-    var request = new sql.Request();
-
-    // query to the database and get the records
-    request.query("select * from station", function(err, recordset) {
-      if (err) console.log(err);
-
-      // send records as a response
-      res.send(recordset);
-    });
-  });
+// First you need to create a connection to the db
+const con = mysql.createConnection({
+  host: 'localhost',
+  user: 'cusenseapi',
+  password: 'cuapi123',
 });
 
-var server = app.listen(5000, function() {
-  console.log("Server is running..");
+con.connect((err) => {
+  if(err){
+    console.log('Error connecting to Db');
+    return;
+  }
+  console.log('Connection established');
+});
+
+con.end((err) => {
+  // The connection is terminated gracefully
+  // Ensures all previously enqueued queries are still
+  // before sending a COM_QUIT packet to the MySQL server.
 });
