@@ -4,7 +4,7 @@ const mysql = require('mysql');
 // First you need to create a connection to the db
 const con = mysql.createConnection({
   host: 'localhost',
-  user: 'cusenseapi',
+  user: 'apicusense',
   password: 'cuapi123',
 });
 
