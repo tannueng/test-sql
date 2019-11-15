@@ -50,7 +50,7 @@ pool.query("SELECT * FROM station", function(err, rows, fields) {
   for (i = 0; i < rows.length; i++) {
     if (rows[i].stationid == ("DustBoy/DB68" || "DustBoy/DB12")) {
       console.log(rows[i]);
-      match.push(rows[i]);
+      match = Object.assign(rows[i]);
       console.log(match);
     }
   }
