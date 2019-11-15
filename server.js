@@ -47,13 +47,14 @@ const pool = mysql.createPool({
 pool.query("SELECT * FROM station", function(err, rows, fields) {
   // Connection is automatically released when query resolves
   let match = {};
+  let a = 0;
   for (i = 0; i < rows.length; i++) {
     if (
       rows[i].stationid == "DustBoy/DB68" ||
       rows[i].stationid == "DustBoy/DB12"
     ) {
       //   console.log(rows[i]);
-      match = append(rows[i]);
+      match[a] = rows[i];
       console.log("match", match);
     }
   }
