@@ -49,8 +49,8 @@ pool.query("SELECT * FROM station", function(err, rows, fields) {
   let match = {};
   for (i = 0; i < rows.length; i++) {
     if (rows[i].stationid == "DustBoy/DB68") {
-      console.log(row[i]);
-      match = row[i];
+      console.log(rows[i]);
+      match = rows[i];
       console.log(match);
     }
   }
