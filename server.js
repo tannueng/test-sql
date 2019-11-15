@@ -52,9 +52,9 @@ pool.query("SELECT * FROM station", function(err, rows, fields) {
       rows[i].stationid == "DustBoy/DB68" ||
       rows[i].stationid == "DustBoy/DB12"
     ) {
-      console.log(rows[i]);
-      match = Object.assign(rows[i]);
-      console.log(match);
+      //   console.log(rows[i]);
+      match = append(rows[i]);
+      console.log("match", match);
     }
   }
 });
